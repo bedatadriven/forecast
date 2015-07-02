@@ -23,7 +23,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <renjin.version>0.7.1537</renjin.version>
+        <renjin.version>0.7.0-RC8-SNAPSHOT</renjin.version>
     </properties>
 
     <dependencies>
@@ -40,6 +40,26 @@
             <version>${renjin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.renjin.cran</groupId>
+            <artifactId>zoo</artifactId>
+            <version>1.7-12-b201</version>
+        </dependency>
+        <dependency>
+            <groupId>org.renjin.cran</groupId>
+            <artifactId>fracdiff</artifactId>
+            <version>1.4-2-b209</version>
+        </dependency>
+        <dependency>
+            <groupId>org.renjin</groupId>
+            <artifactId>stats</artifactId>
+            <version>${renjin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.renjin.cran</groupId>
+            <artifactId>tseries</artifactId>
+            <version>0.10-34-b208</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -47,6 +67,11 @@
             <id>bedatadriven</id>
             <name>bedatadriven public repo</name>
             <url>http://nexus.bedatadriven.com/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>renjin</id>
+            <name>Renjin CI Builds</name>
+            <url>http://ci.repo.renjin.org/</url>
         </repository>
     </repositories>
 
@@ -75,17 +100,17 @@
                             <dataDirectory>${basedir}/data</dataDirectory>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>gnur-compile</id>
-                        <goals>
-                            <goal>gnur-sources-compile</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectories>
-                                <sourceDirectory>${basedir}/src</sourceDirectory>
-                            </sourceDirectories>
-                        </configuration>
-                    </execution>
+                    <!--<execution>-->
+                        <!--<id>gnur-compile</id>-->
+                        <!--<goals>-->
+                            <!--<goal>gnur-sources-compile</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<sourceDirectories>-->
+                                <!--<sourceDirectory>${basedir}/src</sourceDirectory>-->
+                            <!--</sourceDirectories>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
                     <execution>
                         <id>renjin-test</id>
                         <goals>
